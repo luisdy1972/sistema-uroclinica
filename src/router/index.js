@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import { LayoutHome } from '../layouts'
-import { Home, Historial } from '../pages'
+import { Home, Historial, Inventario, Equipo } from '../pages'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -21,11 +21,11 @@ const router = createRouter({
 				},
 				{
 					path: '/inventario',
-					component: Home,
+					component: Inventario,
 				},
 				{
 					path: '/equipo/:id',
-					component: Home,
+					component: Equipo,
 				},
 			],
 		},
