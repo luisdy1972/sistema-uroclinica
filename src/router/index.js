@@ -1,26 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../pages'
+
+import { LayoutHome } from '../layouts'
+import { Home, Historial } from '../pages'
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
 		{
 			path: '/',
-			component: Home,
-		},
-		{
-			path: '/historial',
-			component: Home,
-		},
-		{
-			path: '/inventario',
-			component: Home,
-		},
-		{
-			path: '/equipo/:id',
-			component: Home,
+			component: LayoutHome,
+			children: [
+				{
+					path: '/',
+					component: Home,
+				},
+
+				{
+					path: '/historial',
+					component: Historial,
+				},
+				{
+					path: '/inventario',
+					component: Home,
+				},
+				{
+					path: '/equipo/:id',
+					component: Home,
+				},
+			],
 		},
 	],
+
 	scrollBehavior(to, from, savedPosition) {
 		return { top: 0 }
 	},

@@ -1,6 +1,5 @@
-<script setup></script>
-
 <template>
-	<h2>Home</h2>
+	<h2>Historial</h2>
 </template>
+<script setup></script>
 <style scoped></style>

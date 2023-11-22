@@ -1,3 +1,4 @@
 import Home from './Home.vue'
+import Historial from './Historial.vue'
 
-export default Home
+export { Home, Historial }
