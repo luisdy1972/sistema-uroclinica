@@ -29,5 +29,5 @@ onAuthStateChanged(auth, async (userLogin) => {
 })
 
 // indexación de otros archivos
-import * as querys from './querys.js'
+import * as querys from './firestore.js'
 export { db, querys }

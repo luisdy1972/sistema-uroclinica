@@ -12,7 +12,7 @@
 </template>
 <script setup>
 import { onMounted } from 'vue'
-import { querys } from '../../firebase'
+import { querys } from '@fb'
 const buscar = querys.buscarDocumentos
 
 onMounted(() => {
