@@ -7,7 +7,9 @@ import {
 
 async function iniciarSesion() {}
 
-async function cerrarSesion() {}
+async function cerrarSesion() {
+	return signOut(auth)
+}
 
 async function registrarUsusario() {}
 
