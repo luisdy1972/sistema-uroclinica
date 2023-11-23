@@ -10,7 +10,21 @@
 	</nav>
 	<router-view></router-view>
 </template>
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue'
+import { querys } from '../../firebase'
+const buscar = querys.buscarDocumentos
+
+onMounted(() => {
+	buscar('historial')
+		.then((result) => {
+			console.log(result)
+		})
+		.catch((err) => {
+			console.error(err)
+		})
+})
+</script>
 <style scoped>
 nav {
 	display: flex;
