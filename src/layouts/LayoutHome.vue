@@ -7,6 +7,7 @@
 		<RouterLink to="/inventario">Inventario</RouterLink>
 
 		<RouterLink to="/equipo/1">Equipo/{id}</RouterLink>
+		<RouterLink to="/login">Iniciar sesión</RouterLink>
 	</nav>
 	<router-view></router-view>
 </template>

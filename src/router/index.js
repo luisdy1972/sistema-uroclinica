@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { LayoutHome } from '../layouts'
-import { Home, Historial, Inventario, Equipo } from '../pages'
+import { LayoutHome } from '@layouts'
+import { Home, Historial, Inventario, Equipo, Login, Registro } from '@pages'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -28,6 +28,16 @@ const router = createRouter({
 					component: Equipo,
 				},
 			],
+		},
+
+		{
+			path: '/login',
+			component: Login,
+		},
+
+		{
+			path: '/registro',
+			component: Registro,
 		},
 	],
 
