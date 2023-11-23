@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-async function ingresar(credenciales) {
+async function solicitar(credenciales) {
 	console.log(credenciales.email, credenciales.pass)
 }
 const credenciales = ref({})
@@ -9,7 +9,15 @@ const credenciales = ref({})
 <template>
 	<section>
 		<h2>Registro</h2>
-		<form @submit.prevent="ingresar(credenciales)">
+		<form @submit.prevent="solicitar(credenciales)">
+			<input
+				required
+				v-model="credenciales.nombre"
+				type="email"
+				name="email"
+				id="Correo"
+				placeholder="Nombre"
+			/>
 			<input
 				required
 				v-model="credenciales.email"
@@ -24,25 +32,31 @@ const credenciales = ref({})
 				v-model="credenciales.pass"
 				name="pass"
 				id="contraseña"
-				placeholder="***********"
+				placeholder="°°°°°°°°°°"
 			/>
 			<input
 				required
 				type="password"
-				v-model="credenciales.pass"
+				v-model="credenciales.pass2"
 				name="pass"
 				id="contraseña"
-				placeholder="***********"
+				placeholder="°°°°°°°°°°"
 			/>
-			<button type="submit">Solicitar</button>
+			<button type="submit">Solicitar usuario</button>
 			<div>
 				<p>¿Ya tienes una cuenta?</p>
-				<RouterLink to="/login">Inicia seción</RouterLink>
+				<RouterLink to="/login">Inicia sesión</RouterLink>
 			</div>
 		</form>
 	</section>
 </template>
 <style scoped>
+section {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 form {
 	display: flex;
 	flex-direction: column;

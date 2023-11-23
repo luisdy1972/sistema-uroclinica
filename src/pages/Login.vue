@@ -24,7 +24,7 @@ const credenciales = ref({})
 				v-model="credenciales.pass"
 				name="pass"
 				id="contraseña"
-				placeholder="***********"
+				placeholder="°°°°°°°°°°"
 			/>
 			<button type="submit">Entrar</button>
 			<RouterLink to="/registro">Solicitar usuario</RouterLink>
@@ -32,6 +32,12 @@ const credenciales = ref({})
 	</section>
 </template>
 <style scoped>
+section {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 form {
 	display: flex;
 	flex-direction: column;
