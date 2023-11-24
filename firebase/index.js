@@ -10,23 +10,37 @@ const firebaseConfig = {
 	messagingSenderId: '614389175163',
 	appId: '1:614389175163:web:f720efc3a34cdda8e8e3de',
 }
-const user = ref({})
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 auth.languageCode = 'es'
 const db = getFirestore(app)
 
-// evento que vigila la autenticación
-onAuthStateChanged(auth, async (userLogin) => {
-	if (!userLogin) {
-		// console.log(userLogin)
-		user.value = {}
-	} else {
-		console.log(userLogin)
-		user.value = userLogin
-	}
+onAuthStateChanged(auth, (userLogin) => {
+	console.log(userLogin)
+	user.value = userLogin
 })
+const user = ref()
+
 // indexación de otros archivos
-import * as querys from './firestore.js'
-export { auth, db, user, querys }
+import {
+	buscarDocumentos,
+	guardarActualizarDocumento,
+	actualizarDocumento,
+	eliminarDocumento,
+} from './firestore.js'
+
+import { registrarUsusario, iniciarSesion, cerrarSesion } from './auth.js'
+
+export {
+	auth,
+	db,
+	user,
+	buscarDocumentos,
+	guardarActualizarDocumento,
+	actualizarDocumento,
+	eliminarDocumento,
+	registrarUsusario,
+	iniciarSesion,
+	cerrarSesion,
+}

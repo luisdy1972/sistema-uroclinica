@@ -1,8 +1,22 @@
 <script setup>
 import { ref } from 'vue'
+import { user, iniciarSesion } from '@fb'
+import router from '@router'
+
+console.log(user.value)
+
 async function ingresar(credenciales) {
-	console.log(credenciales.email, credenciales.pass)
+	console.log(user.value)
+
+	await iniciarSesion(credenciales.email, credenciales.pass)
+		.then(() => {
+			router.push('/')
+		})
+		.catch((err) => {
+			console.error(err)
+		})
 }
+
 const credenciales = ref({})
 </script>
 

@@ -1,16 +1,21 @@
-import { auth } from '.'
+import { auth, user } from '.'
 import {
-	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	createUserWithEmailAndPassword,
 	signOut,
 } from 'firebase/auth'
 
-async function iniciarSesion() {}
-
-async function cerrarSesion() {
-	return signOut(auth)
+async function iniciarSesion(email, pass) {
+	return await signInWithEmailAndPassword(auth, email, pass)
 }
 
-async function registrarUsusario() {}
+async function registrarUsusario(email, pass) {
+	return await createUserWithEmailAndPassword(auth, email, pass)
+}
+
+async function cerrarSesion() {
+	user.value = undefined
+	return await signOut(auth)
+}
 
 export { registrarUsusario, iniciarSesion, cerrarSesion }

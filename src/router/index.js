@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import { LayoutHome } from '@layouts'
 import { Home, Historial, Inventario, Equipo, Login, Registro } from '@pages'
+import { user } from '@fb'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -12,11 +12,12 @@ const router = createRouter({
 			children: [
 				{
 					path: '/',
+					alias: ['/home', 'inicio', 'casa'],
 					component: Home,
 				},
-
 				{
 					path: '/historial',
+					meta: { requiresAuth: false },
 					component: Historial,
 				},
 				{
