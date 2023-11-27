@@ -1,15 +1,15 @@
 <script setup>
 import { ref } from 'vue'
 import { user, iniciarSesion } from '@fb'
-import router from '@router'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
-console.log(user.value)
+const rutaActual = router.currentRoute.value
 
 async function ingresar(credenciales) {
-	console.log(user.value)
-
 	await iniciarSesion(credenciales.email, credenciales.pass)
 		.then(() => {
+			rutaActual.meta = { login: true }
 			router.push('/')
 		})
 		.catch((err) => {

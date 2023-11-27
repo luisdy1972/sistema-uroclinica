@@ -11,9 +11,10 @@
 </template>
 <script setup>
 import { onMounted } from 'vue'
-
+import { useRouter } from 'vue-router'
 import { cerrarSesion } from '@fb'
-import router from '@router'
+
+const router = useRouter()
 
 async function salir() {
 	await cerrarSesion()
