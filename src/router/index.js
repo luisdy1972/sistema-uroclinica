@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { LayoutHome } from '@layouts'
 import { Home, Historial, Inventario, Equipo, Login, Registro } from '@pages'
 
+import { user } from '@fb'
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
@@ -32,7 +34,6 @@ const router = createRouter({
 		{
 			path: '/login',
 			component: Login,
-			sensitive: true,
 		},
 
 		{
@@ -44,6 +45,25 @@ const router = createRouter({
 	scrollBehavior(to, from, savedPosition) {
 		return { top: 0 }
 	},
+})
+
+router.beforeEach(async (to, from, next) => {
+	async function authtenticacion() {
+		setTimeout(() => {
+			console.log('user : ' + Boolean(user))
+
+			if (user && from.fullPath == '/login') {
+				router.push('/')
+			}
+
+			if (!user && to.fullPath !== '/registro') {
+				router.push('/login')
+			}
+		}, 100)
+	}
+
+	await authtenticacion()
+	return next()
 })
 
 export default router

@@ -22,30 +22,16 @@ const firebaseConfig = {
 	appId: '1:614389175163:web:f720efc3a34cdda8e8e3de',
 }
 
-// usuario de firebase
-let user
-
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 auth.languageCode = 'es'
 const db = getFirestore(app)
 
-async function verificarAutenticacion() {
-	console.log('♥')
-	try {
-		onAuthStateChanged(auth, (userLogin) => {
-			user = userLogin
-			if (!user && window.location.pathname !== '/registro') {
-				router.push('/login')
-			} else if (user && window.location.pathname == '/login') {
-				console.log('Login ✔')
-				router.push('/')
-			}
-		})
-	} catch (error) {}
-}
-
-await verificarAutenticacion()
+let user
+onAuthStateChanged(auth, (login) => {
+	user = login
+	console.log('FB : ' + Boolean(user))
+})
 
 export {
 	auth,
