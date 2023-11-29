@@ -45,7 +45,7 @@ const credenciales = ref({})
 			<button type="submit">Solicitar usuario</button>
 			<div>
 				<p>¿Ya tienes una cuenta?</p>
-				<RouterLink to="/login">Inicia sesión</RouterLink>
+				<a href="/login">Inicia sesión</a>
 			</div>
 		</form>
 	</section>

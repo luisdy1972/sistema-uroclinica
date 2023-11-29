@@ -4,7 +4,7 @@
 		<RouterLink to="/historial">Historial </RouterLink>
 		<RouterLink to="/inventario">Inventario</RouterLink>
 		<RouterLink to="/equipo/1">Equipo/{id}</RouterLink>
-		<RouterLink to="/login">Iniciar sesión</RouterLink>
+		<RouterLink to="/registro">Solicitar usuario</RouterLink>
 		<a @click="salir">Cerrar sesión</a>
 	</nav>
 	<router-view></router-view>
@@ -20,22 +20,14 @@ async function salir() {
 	await cerrarSesion()
 		.then(() => {
 			console.log('Sesión cerrada')
-			router.push('/')
+			router.push('/login')
 		})
 		.catch((err) => {
 			console.error(err)
 		})
 }
 
-onMounted(() => {
-	// buscar('historial')
-	// 	.then((result) => {
-	// 		console.log(result)
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err)
-	// 	})
-})
+onMounted(() => {})
 </script>
 <style scoped>
 a {

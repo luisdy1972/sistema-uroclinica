@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { LayoutHome } from '@layouts'
 import { Home, Historial, Inventario, Equipo, Login, Registro } from '@pages'
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
@@ -12,7 +13,6 @@ const router = createRouter({
 					path: '/',
 					alias: ['/home', 'inicio', 'casa'],
 					component: Home,
-					meta: {},
 				},
 				{
 					path: '/historial',
@@ -32,6 +32,7 @@ const router = createRouter({
 		{
 			path: '/login',
 			component: Login,
+			sensitive: true,
 		},
 
 		{
@@ -43,10 +44,6 @@ const router = createRouter({
 	scrollBehavior(to, from, savedPosition) {
 		return { top: 0 }
 	},
-})
-
-router.afterEach((to, from, next) => {
-	console.log(from.meta.login)
 })
 
 export default router
