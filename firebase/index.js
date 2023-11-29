@@ -11,8 +11,6 @@ import {
 	eliminarDocumento,
 } from './firestore.js'
 
-import router from '@router'
-
 const firebaseConfig = {
 	apiKey: 'AIzaSyCukXSi_ZpVeRdV8KM_bS7IjS2VaH142Fg',
 	authDomain: 'sistema-uroclinica.firebaseapp.com',

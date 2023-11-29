@@ -59,7 +59,7 @@ router.beforeEach(async (to, from, next) => {
 			if (!user && to.fullPath !== '/registro') {
 				router.push('/login')
 			}
-		}, 100)
+		}, 10)
 	}
 
 	await authtenticacion()
