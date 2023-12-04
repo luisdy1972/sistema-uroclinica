@@ -2,12 +2,11 @@
 import { ref } from 'vue'
 import { iniciarSesion } from '@fb'
 import { useRouter } from 'vue-router'
+
 const router = useRouter()
-const rutaActual = router.currentRoute.value
 async function ingresar(credenciales) {
 	await iniciarSesion(credenciales.email, credenciales.pass)
 		.then((res) => {
-			rutaActual.meta = { user: res.user }
 			router.push('/')
 		})
 		.catch((err) => {

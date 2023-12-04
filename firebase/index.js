@@ -25,15 +25,16 @@ const auth = getAuth(app)
 auth.languageCode = 'es'
 const db = getFirestore(app)
 
-let user
+let user = null
+
 onAuthStateChanged(auth, (login) => {
 	user = login
-	console.log('FB : ' + Boolean(user))
 })
 
 export {
 	auth,
 	db,
+	user,
 	buscarDocumentos,
 	guardarActualizarDocumento,
 	actualizarDocumento,
@@ -41,5 +42,4 @@ export {
 	registrarUsusario,
 	iniciarSesion,
 	cerrarSesion,
-	user,
 }

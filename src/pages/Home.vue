@@ -1,9 +1,4 @@
-<script setup>
-import { HelloWorld } from '@components'
-</script>
+<script setup></script>
 
-<template>
-	<h2>Inicio</h2>
-	<HelloWorld msg="Hola Mundo"></HelloWorld>
-</template>
+<template></template>
 <style scoped></style>

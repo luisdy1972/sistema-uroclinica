@@ -3,6 +3,7 @@ import { LayoutHome } from '@layouts'
 import { Home, Historial, Inventario, Equipo, Login, Registro } from '@pages'
 
 import { user } from '@fb'
+// import { useLogin } from '@stores'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -15,18 +16,22 @@ const router = createRouter({
 					path: '/',
 					alias: ['/home', 'inicio', 'casa'],
 					component: Home,
+					meta: { login: true },
 				},
 				{
 					path: '/historial',
 					component: Historial,
+					meta: { login: true },
 				},
 				{
 					path: '/inventario',
 					component: Inventario,
+					meta: { login: true },
 				},
 				{
 					path: '/equipo/:id',
 					component: Equipo,
+					meta: { login: true },
 				},
 			],
 		},
@@ -40,6 +45,10 @@ const router = createRouter({
 			path: '/registro',
 			component: Registro,
 		},
+		{
+			path: '/404',
+			component: Registro,
+		},
 	],
 
 	scrollBehavior(to, from, savedPosition) {
@@ -47,22 +56,26 @@ const router = createRouter({
 	},
 })
 
-router.beforeEach(async (to, from, next) => {
-	async function authtenticacion() {
-		setTimeout(() => {
-			console.log('user : ' + Boolean(user))
+router.beforeEach((to, from, next) => {
+	// if (to.matched.some((route) => route.meta.login)) {
+	// 	if (!useLogin.sesion) {
+	// 		router.push('/login')
+	// 	}
+	// }
 
-			if (user && from.fullPath == '/login') {
-				router.push('/')
-			}
+	// async function authtenticacion() {
+	// 	setTimeout(() => {
+	// 		// console.log('user : ' + Boolean(user))
+	// 		if (user && to.fullPath == '/login') {
+	// 			router.push('/')
+	// 		}
+	// 		if (!user && to.fullPath !== '/registro') {
+	// 			router.push('/login')
+	// 		}
+	// 	}, 200)
+	// }
+	// authtenticacion()
 
-			if (!user && to.fullPath !== '/registro') {
-				router.push('/login')
-			}
-		}, 10)
-	}
-
-	await authtenticacion()
 	return next()
 })
 

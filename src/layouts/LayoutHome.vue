@@ -7,10 +7,12 @@
 		<RouterLink to="/registro">Solicitar usuario</RouterLink>
 		<a @click="salir">Cerrar sesión</a>
 	</nav>
-	<router-view></router-view>
+	<div class="container">
+		<router-view></router-view>
+	</div>
 </template>
 <script setup>
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { cerrarSesion } from '@fb'
 
@@ -27,14 +29,25 @@ async function salir() {
 		})
 }
 
-onMounted(() => {})
+// onMounted(() => {})
 </script>
 <style scoped>
 a {
 	cursor: pointer;
 }
+
+.container {
+	min-width: 90vw;
+}
 nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 35px;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	gap: 2rem;
 }
 </style>
