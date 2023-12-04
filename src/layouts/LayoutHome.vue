@@ -28,7 +28,6 @@ async function salir() {
 			console.error(err)
 		})
 }
-
 // onMounted(() => {})
 </script>
 <style scoped>
